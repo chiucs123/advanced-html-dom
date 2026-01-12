@@ -54,7 +54,7 @@ class AHTMLNodeList implements \Iterator, \Countable, \ArrayAccess
      *
      * @return bool
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset):bool
     {
         return 0 <= $offset && $offset < $this->nodeList->length;
     }
@@ -64,7 +64,7 @@ class AHTMLNodeList implements \Iterator, \Countable, \ArrayAccess
      *
      * @return AHTMLNode
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset):AHTMLNode
     {
         return new AHTMLNode($this->nodeList->item($offset), $this->doc);
     }
@@ -73,7 +73,7 @@ class AHTMLNodeList implements \Iterator, \Countable, \ArrayAccess
      * @param mixed $offset
      * @param mixed $value
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value):void
     {
         \trigger_error('offsetSet not implemented', E_USER_WARNING);
     }
@@ -81,7 +81,7 @@ class AHTMLNodeList implements \Iterator, \Countable, \ArrayAccess
     /**
      * @param mixed $offset
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset):void
     {
         \trigger_error('offsetUnset not implemented', E_USER_WARNING);
     }
@@ -89,7 +89,7 @@ class AHTMLNodeList implements \Iterator, \Countable, \ArrayAccess
     /**
      * @return mixed
      */
-    public function count()
+    public function count():int
     {
         return $this->nodeList->length;
     }
@@ -97,7 +97,7 @@ class AHTMLNodeList implements \Iterator, \Countable, \ArrayAccess
     /**
      *
      */
-    public function rewind()
+    public function rewind():void
     {
         $this->counter = 0;
     }
@@ -105,7 +105,7 @@ class AHTMLNodeList implements \Iterator, \Countable, \ArrayAccess
     /**
      * @return AHTMLNode
      */
-    public function current()
+    public function current():AHTMLNode
     {
         return new AHTMLNode($this->nodeList->item($this->counter), $this->doc);
     }
@@ -113,7 +113,7 @@ class AHTMLNodeList implements \Iterator, \Countable, \ArrayAccess
     /**
      * @return int
      */
-    public function key()
+    public function key():int
     {
         return $this->counter;
     }
@@ -121,7 +121,7 @@ class AHTMLNodeList implements \Iterator, \Countable, \ArrayAccess
     /**
      *
      */
-    public function next()
+    public function next():void
     {
         $this->counter++;
     }
@@ -129,7 +129,7 @@ class AHTMLNodeList implements \Iterator, \Countable, \ArrayAccess
     /**
      * @return bool
      */
-    public function valid()
+    public function valid():bool
     {
         return $this->nodeList && $this->counter < $this->nodeList->length;
     }
