@@ -59,7 +59,7 @@ $attributes = \implode('|', $attributes);
  *
  * @deprecated strGetHtml
  */
-function str_get_html($html, InterfaceCache $cache = null)
+function str_get_html($html, ?InterfaceCache $cache = null)
 {
     return strGetHtml($html, $cache);
 }
@@ -70,7 +70,7 @@ function str_get_html($html, InterfaceCache $cache = null)
  *
  * @return AdvancedHtmlDom
  */
-function strGetHtml($html, InterfaceCache $cache = null)
+function strGetHtml($html, ?InterfaceCache $cache = null)
 {
     $adv = new AdvancedHtmlDom($html);
 
@@ -89,7 +89,7 @@ function strGetHtml($html, InterfaceCache $cache = null)
  *
  * @deprecated fileGetHtml
  */
-function file_get_html($url, InterfaceCache $cache = null)
+function file_get_html($url, ?InterfaceCache $cache = null)
 {
     return fileGetHtml($url, $cache);
 }
@@ -100,7 +100,7 @@ function file_get_html($url, InterfaceCache $cache = null)
  *
  * @return AdvancedHtmlDom
  */
-function fileGetHtml($url, InterfaceCache $cache = null)
+function fileGetHtml($url, ?InterfaceCache $cache = null)
 {
     if ($cache) {
         return strGetHtml($cache->get($url));
@@ -117,7 +117,7 @@ function fileGetHtml($url, InterfaceCache $cache = null)
  *
  * @deprecated strGetXml
  */
-function str_get_xml($html, InterfaceCache $cache = null)
+function str_get_xml($html, ?InterfaceCache $cache = null)
 {
     return strGetXml($html, $cache);
 }
@@ -128,7 +128,7 @@ function str_get_xml($html, InterfaceCache $cache = null)
  *
  * @return AdvancedHtmlDom
  */
-function strGetXml($html, InterfaceCache $cache = null)
+function strGetXml($html, ?InterfaceCache $cache = null)
 {
     $adv = new AdvancedHtmlDom($html, true);
 
@@ -147,7 +147,7 @@ function strGetXml($html, InterfaceCache $cache = null)
  *
  * @deprecated fileGetXml
  */
-function file_get_xml($url, InterfaceCache $cache = null)
+function file_get_xml($url, ?InterfaceCache $cache = null)
 {
     return fileGetXml($url, $cache);
 }
@@ -158,7 +158,7 @@ function file_get_xml($url, InterfaceCache $cache = null)
  *
  * @return AdvancedHtmlDom
  */
-function fileGetXml($url, InterfaceCache $cache = null)
+function fileGetXml($url, ?InterfaceCache $cache = null)
 {
     if ($cache) {
         return strGetXml($cache->get($url));
